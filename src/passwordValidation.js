@@ -11,16 +11,19 @@ export default function isValidPassword(password = "") {
   if (typeof password !== "string") password = String(password);
   if(password.length!==10)return false    //less than 10
 
-  if(!password.match(/\w+^[_]/))return false    //happy case
+  // if(!password.match(/\w+^[_]/))return false    //happy case
 
-  if(!password.match(/\d+/))return false   //has to have numbers
+  if(!(/\d+/).test(password))return false   //has to have numbers
 
+  if(!(/[a-z]/i).test(password))return false  //has to have letters
 
-  if(!password.match(/[a-zA-Z]/))return false     //has to have letters
+  if((/[!@#$%^&*(),.?":{}|<>]/).test(password))return false //must not have special characters
 
+  if(!(/[A-Z]/).test(password)) return false  // must have upper case letters
 
-if(!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)) return false  // both lower and upper case
-
+  if(!(/[a-z]/).test(password)) return false // must have lower case letters  
+  
+  if((/(012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210)/).test(password))return false //must not have ascending or descending sequence of numbers
 
   if(forbiddenPasswords.includes(password))return false //at least 4 different characters
 
