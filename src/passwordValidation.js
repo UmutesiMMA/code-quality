@@ -10,21 +10,27 @@ export default function isValidPassword(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
   if (typeof password !== "string") password = String(password);
 
-  if(forbiddenPasswords.includes(password))return false //must not be forbidden
+  if(forbiddenPasswords.includes(password))return false //must not be a forbidden password
 
   if(password.length!==10)return false
 
-  if(!(/\d+/).test(password))return false   //has to have numbers
+  //has to have numbers
+  if(!(/\d+/).test(password))return false   
 
-  if(!(/[a-z]/i).test(password))return false  //has to have letters
+  //has to have letters
+  if(!(/[a-z]/i).test(password))return false  
 
-  if((/[^a-zA-Z0-9]/).test(password))return false //must not have special characters
+  //must not have special characters
+  if((/[^a-zA-Z0-9]/).test(password))return false 
 
-  if(!(/[A-Z]/).test(password) || !(/[a-z]/).test(password)) return false  // must have both upper and lower case letters
+  // must have both upper and lower case letters
+  if(!(/[A-Z]/).test(password) || !(/[a-z]/).test(password)) return false  
 
-  if((/(012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210)/).test(password))return false //must not have ascending or descending sequence of numbers
+  //must not have ascending or descending sequence of numbers
+  if((/(012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210)/).test(password))return false 
 
-  const setOfPassword = new Set([...password]); //at least 4 different characters
+  //at least 4 different characters
+  const setOfPassword = new Set([...password]); 
   if (setOfPassword.size <=3) return false;                                                         
   return true;
 }                                         
