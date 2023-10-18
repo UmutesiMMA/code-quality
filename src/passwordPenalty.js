@@ -6,16 +6,17 @@
  * @returns {number}
  */
 export default function penaltyPoints(password = "") {
-  // The following line ensures, that password is always a string, like the number 128 -> string "128"
-  let count = 0
   if(password===null)return 0
+
   if (typeof password !== "string") password = String(password);
-  let matched = password.match(/([a-zA-Z0-9])\1+/gi)
-  if(!matched)return 0
-  for(let group of matched){
-    if (group.length===2)count+=1
-    if (group.length>=3)count+=2
+
+  //checking for double or more consecutive letters
+  const matchedGroups = password.match(/([a-zA-Z0-9])\1+/gi)
+  if(!matchedGroups)return 0
+
+  let count = 0
+  for(let group of matchedGroups){
+    group >2 ? count+=2 : count+=1
   }
   return count
-
 }
