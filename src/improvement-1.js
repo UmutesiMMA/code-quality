@@ -5,10 +5,6 @@
  */
 
 // FUNCTION 1
-export default function cntRbt(ls) {
-  let cnt = 0;
-  for(let i of ls){
-    if(i==='R')cnt++
-  }
-  return cnt;
+export default function countingRs(word) {
+  return word.split('').filter(char => char==='R').length
 }
