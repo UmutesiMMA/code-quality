@@ -10,13 +10,13 @@ export default function penaltyPoints(password = "") {
 
   if (typeof password !== "string") password = String(password);
 
+  //checking for double or more consecutive letters
   const matchedGroups = password.match(/([a-zA-Z0-9])\1+/gi)
   if(!matchedGroups)return 0
 
   let count = 0
   for(let group of matchedGroups){
-    if (group.length===2)count+=1
-    if (group.length>=3)count+=2
+    group >2 ? count+=2 : count+=1
   }
   return count
 }
