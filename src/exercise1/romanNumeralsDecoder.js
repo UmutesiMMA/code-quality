@@ -38,9 +38,5 @@ function decodeRomanNumeral(roman) {
   return result
 }
 
-console.log(decodeRomanNumeral("MDCLXVI"));
-console.log(decodeRomanNumeral("MMVIII"));
-console.log(decodeRomanNumeral("IX"));
-console.log(decodeRomanNumeral("IV"));
 
 
