@@ -9,7 +9,7 @@
      var average = sum / count;
      return average;
    }
-   **/
+   */
 function calculateAverage(numbers){
     return numbers.reduce((acc,cur)=>acc + cur)/numbers.length
 }
