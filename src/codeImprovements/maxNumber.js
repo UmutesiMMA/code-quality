@@ -13,6 +13,4 @@
 }
  */
 
-function maxNumber(a,b,c){
-    return Math.max(a,b,c)
-}
+let maxNumber= (a,b,c)=> Math.max(a,b,c)
