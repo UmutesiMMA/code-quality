@@ -11,12 +11,12 @@
   }
 } */
 
-function calculateFactorial(number){
-    let result = 1;
-    if(number<2)return 1
-    while(number>0){
-        result*=number
-        number--
-    }
-    return result
+function calculateFactorial(number) {
+  if (number < 2) return 1;
+  let result = 1;
+  while (number > 0) {
+    result *= number;
+    number--;
+  }
+  return result;
 }

@@ -13,4 +13,4 @@
 }
  */
 
-let maxNumber= (a,b,c)=> Math.max(a,b,c)
+const maxNumber= (a,b,c)=> Math.max(a,b,c)
