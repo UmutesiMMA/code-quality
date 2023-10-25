@@ -1,2 +1,4 @@
 //Calculate sum of array elements
-const sum = (arr) => arr.reduce((acc, cur) => acc + cur);
+function sum (array){
+    if(array.length<1)return 0
+}
